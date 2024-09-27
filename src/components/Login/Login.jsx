@@ -19,10 +19,10 @@ const Login = () => {
 			<div className="hero-overlay bg-opacity-50"></div>
 			<div className="hero-content text-neutral-content text-center">
 				<div className="max-w-md">
-					<h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+					<h1 className="mb-5 text-5xl font-bold">Honorable User</h1>
 					<p className="mb-5 text-3xl font-semibold">
-						"Unlock Access to Exclusive Property Listings – Please
-						Login First!"
+						"To Access Exclusive Property Listings – Please
+						Login!"
 					</p>
 					<form
 						onSubmit={handleLogin}
@@ -59,12 +59,16 @@ const Login = () => {
 							</label>
 						</div>
 						<div className="form-control mt-6">
-							<button className="btn btn-success">Login</button>
+							<button className="btn btn-success text-white">
+								Login
+							</button>
 						</div>
 					</form>
 					<p className="text-xl">
-						Don't have an account
-						<Link className="text-orange-600 ml-2" to="/register">Please Register!</Link>
+						Don't have any account!
+						<Link className="text-orange-600 ml-2 font-semibold" to="/register">
+							Please Register
+						</Link>
 					</p>
 				</div>
 			</div>
