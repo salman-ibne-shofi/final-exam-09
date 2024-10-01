@@ -1,11 +1,46 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+	const { logIn } = useContext(AuthContext);
 	const handleLogin = (e) => {
 		e.preventDefault();
 		console.log(e.currentTarget);
 		const form = new FormData(e.currentTarget);
-		console.log(form.get("password"));
+		const email = form.get("email");
+		const password = form.get("password");
+		// console.log(email, password);
+		logIn(email, password)
+			.then((result) => {
+				toast.success("Login successful!", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				console.log(result.user);
+			})
+			.catch((error) => {
+				toast.error(
+					"Login faield. Please try again after make sure Your Registration or User Credential Issue.",
+					{
+						position: "top-right",
+						autoClose: 3000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+					}
+				);
+				console.error(error);
+			});
 	};
 
 	return (
@@ -21,8 +56,7 @@ const Login = () => {
 				<div className="max-w-md">
 					<h1 className="mb-5 text-5xl font-bold">Honorable User</h1>
 					<p className="mb-5 text-3xl font-semibold">
-						"To Access Exclusive Property Listings – Please
-						Login!"
+						"To Access Exclusive Property Listings – Please Login!"
 					</p>
 					<form
 						onSubmit={handleLogin}
@@ -59,19 +93,25 @@ const Login = () => {
 							</label>
 						</div>
 						<div className="form-control mt-6">
-							<button className="btn btn-success text-white">
-								Login
-							</button>
+							<input
+								type="submit"
+								value="Login"
+								className="btn btn-success text-white"
+							/>
 						</div>
 					</form>
 					<p className="text-xl">
 						Don't have any account!
-						<Link className="text-orange-600 ml-2 font-semibold" to="/register">
+						<Link
+							className="text-orange-600 ml-2 font-semibold"
+							to="/register"
+						>
 							Please Register
 						</Link>
 					</p>
 				</div>
 			</div>
+			<ToastContainer />
 		</div>
 	);
 };

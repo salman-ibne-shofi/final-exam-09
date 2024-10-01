@@ -1,9 +1,29 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 	const { createUser } = useContext(AuthContext);
+
+	const [registerError, setRegisterError] = useState("");
+	const [success, setSuccess] = useState("");
+
+	const validatePassword = (password) => {
+		const hasUpperCase = /[A-Z]/.test(password);
+		const hasLowerCase = /[a-z]/.test(password);
+		const hasMinLength = password.length >= 6;
+		if (!hasUpperCase || !hasLowerCase || !hasMinLength) {
+			let errorMessage = "Password must contain:";
+			if (!hasUpperCase) errorMessage += "1 uppercase letter";
+			if (!hasLowerCase) errorMessage += "1 lowercase letter";
+			if (!hasMinLength) errorMessage += "At least 6 characters.";
+			return errorMessage;
+		}
+		return null;
+	};
 
 	const handleRegister = (e) => {
 		e.preventDefault();
@@ -13,16 +33,37 @@ const Register = () => {
 		const email = form.get("email");
 		const photo = form.get("photo");
 		const password = form.get("password");
-		console.log(name, email, photo, password);
+
+		// reset previous error/success
+		setRegisterError("");
+		setSuccess("");
+
+		// validate password
+		const passwordError = validatePassword(password);
+		if (passwordError) {
+			setRegisterError(passwordError);
+			toast.error(passwordError);
+			return;
+		}
 
 		// create user
-		createUser(email, password)
-			.then((result) => {
-				console.log(result.user);
-			})
-			.catch((error) => {
-				console.error(error);
+		try {
+			// Create user with email and password
+			const result = createUser(email, password);
+			const user = result.user;
+
+			// Update user profile with displayName and photoURL
+			updateProfile(user, {
+				displayName: name,
+				photoURL: photo,
 			});
+
+			setSuccess("User created successfully!");
+			toast.success("User created successfully!");
+		} catch (error) {
+			setRegisterError(error.message);
+			toast.error(error.message);
+		}
 	};
 
 	return (
@@ -70,7 +111,7 @@ const Register = () => {
 						</div>
 						<div className="form-control">
 							<label className="label">
-								<span className="text-xl">Photo Url</span>
+								<span className="text-xl">Photo URL</span>
 							</label>
 							<input
 								type="text"
@@ -104,6 +145,10 @@ const Register = () => {
 							</button>
 						</div>
 					</form>
+					{/* {registerError && (
+						<p className="text-red-700">{registerError}</p>
+					)}
+					{success && <p className="text-green-600">{success}</p>} */}
 					<p className="text-xl">
 						Already have an account?
 						<Link
@@ -115,6 +160,8 @@ const Register = () => {
 					</p>
 				</div>
 			</div>
+			{/* Toast container for notifications */}
+			<ToastContainer position="top-right" autoClose={3000} />
 		</div>
 	);
 };

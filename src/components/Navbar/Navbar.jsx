@@ -1,6 +1,39 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+	const { user, logOut } = useContext(AuthContext);
+
+	const handleLogOut = () => {
+		logOut()
+			.then(() => {
+				toast.info("Logged out successfully!", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+			})
+			.catch((error) => {
+				toast.error("Logout failed", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				console.log(error);
+			});
+	};
+
 	const navlinks = (
 		<>
 			<li>
@@ -49,9 +82,26 @@ const Navbar = () => {
 				<ul className="menu menu-horizontal px-1">{navlinks}</ul>
 			</div>
 			<div className="navbar-end">
-				<Link to="/login">
-					<button className="btn">Login</button>
-				</Link>
+				{user ? (
+					<div className="flex items-center space-x-4">
+						<img
+							src={user.photoURL}
+							alt="Profile"
+							className="w-10 h-10 rounded-full"
+							title={user.displayName || "user"}
+						/>
+						<button
+							onClick={handleLogOut}
+							className="btn btn-outline"
+						>
+							Log Out
+						</button>
+					</div>
+				) : (
+					<Link to="/login">
+						<button className="btn btn-outline">Login</button>
+					</Link>
+				)}
 			</div>
 		</div>
 	);
