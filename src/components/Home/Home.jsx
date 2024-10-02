@@ -1,7 +1,22 @@
+import Banner from "../Banner/Banner";
+import Marquee from "react-fast-marquee";
+
 const Home = () => {
 	return (
-		<div className="w-5/6 mx-auto">
-			<h2 className="text-2xl">this is home</h2>
+		<div className="my-4">
+			<div className="flex">
+				<img
+					src="https://i.postimg.cc/8584139x/9f701e379dace43168d606836a42b36e-removebg-preview.png"
+					alt=""
+					className="h-12 mx-2 mb-2"
+				/>
+				<Marquee speed={100} className="text-lg font-bold">
+					Book your new apartment with us today and unlock exclusive
+					savings! Experience the comfort of your dream home while
+					taking advantage of our special promotion.
+				</Marquee>
+			</div>
+			<Banner></Banner>
 		</div>
 	);
 };
