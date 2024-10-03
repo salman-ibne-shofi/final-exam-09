@@ -1,0 +1,110 @@
+[
+	{
+		"id": 1,
+		"estate_title": "Luxury Downtown Apartment",
+		"image": "https://i.postimg.cc/P5GT8gZz/download.jpg",
+		"segment_name": "Luxury",
+		"description": "A modern, spacious apartment located in the heart of downtown with stunning skyline views.",
+		"price": "$750,000",
+		"status": "sale",
+		"area": "2200 sq ft",
+		"location": "Downtown City",
+		"facilities": ["Living room", "Swimming pool", "Kitchen"]
+	},
+	{
+		"id": 2,
+		"estate_title": "Cozy Suburban Home",
+		"image": "https://i.postimg.cc/TP1x8TXx/Latest-suburban-house.jpg",
+		"segment_name": "Residential",
+		"description": "A charming 3-bedroom home in a peaceful suburban neighborhood, perfect for families.",
+		"price": "$350,000",
+		"status": "sale",
+		"area": "1800 sq ft",
+		"location": "Suburban Town",
+		"facilities": ["Living room", "Garage", "Garden"]
+	},
+	{
+		"id": 3,
+		"estate_title": "Beachfront Condo",
+		"image": "https://i.postimg.cc/YCqKgt0F/highest-price-beachfront-condo-2023.jpg",
+		"segment_name": "Luxury",
+		"description": "A beautiful beachfront condo with private access to the beach and ocean views.",
+		"price": "$600,000",
+		"status": "sale",
+		"area": "1600 sq ft",
+		"location": "Coastal City",
+		"facilities": ["Living room", "Swimming pool", "Balcony"]
+	},
+	{
+		"id": 4,
+		"estate_title": "Spacious Mountain Cabin",
+		"image": "https://i.postimg.cc/7Y9jqj9Z/e2c36a3b45044aedaf49cf6b4b57c9ca-Large.jpg",
+		"segment_name": "Vacation",
+		"description": "A rustic mountain cabin with panoramic views, ideal for vacation getaways.",
+		"price": "$450,000",
+		"status": "sale",
+		"area": "3000 sq ft",
+		"location": "Mountain Range",
+		"facilities": ["Living room", "Fireplace", "Outdoor deck"]
+	},
+	{
+		"id": 5,
+		"estate_title": "Urban Loft",
+		"image": "https://i.postimg.cc/9XdMVPkQ/360-F-715568813-ntf8-Jlkpzvhf-En-VIKh5wfl1-Pn-J3i-V202.jpg",
+		"segment_name": "Modern",
+		"description": "A trendy loft apartment located in the bustling urban center with industrial design elements.",
+		"price": "$550,000",
+		"status": "sale",
+		"area": "1400 sq ft",
+		"location": "Urban Center",
+		"facilities": ["Living room", "Kitchen", "Rooftop access"]
+	},
+	{
+		"id": 6,
+		"estate_title": "Penthouse Suite",
+		"image": "https://i.postimg.cc/wjPfvzmg/penthouse-02.jpg",
+		"segment_name": "Luxury",
+		"description": "An exclusive penthouse suite with premium finishes and panoramic city views.",
+		"price": "$1,200,000",
+		"status": "sale",
+		"area": "3500 sq ft",
+		"location": "Downtown Skyline",
+		"facilities": ["Living room", "Private terrace", "Jacuzzi"]
+	},
+	{
+		"id": 7,
+		"estate_title": "Country Cottage",
+		"image": "https://i.postimg.cc/Hx16wtzN/maxresdefault.jpg",
+		"segment_name": "Residential",
+		"description": "A quaint country cottage surrounded by nature, offering peace and tranquility.",
+		"price": "$280,000",
+		"status": "sale",
+		"area": "1200 sq ft",
+		"location": "Countryside",
+		"facilities": ["Living room", "Garden", "Fireplace"]
+	},
+	{
+		"id": 8,
+		"estate_title": "Modern Townhouse",
+		"image": "https://i.postimg.cc/dQB5CryW/modern-townhouse-design-house-168058-939.jpg",
+		"segment_name": "Residential",
+		"description": "A contemporary townhouse in a vibrant neighborhood, close to amenities and parks.",
+		"price": "$450,000",
+		"status": "sale",
+		"area": "1600 sq ft",
+		"location": "Suburban Town",
+		"facilities": ["Living room", "Garage", "Kitchen"]
+	},
+	{
+		"id": 9,
+		"estate_title": "Luxury Villa",
+		"image": "https://i.postimg.cc/LsLT81S3/32b13863-e9a3-42a2-aa56-4d8102c1814e.jpg",
+		"segment_name": "Luxury",
+		"description": "An exquisite luxury villa with a large private garden and a stunning pool area.",
+		"price": "$2,500,000",
+		"status": "sale",
+		"area": "5000 sq ft",
+		"location": "Private Estate",
+		"facilities": ["Living room", "Swimming pool", "Private garden"]
+	}
+]

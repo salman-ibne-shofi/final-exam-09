@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import Marquee from "react-fast-marquee";
+import Cards from "../Cards/Cards";
 
 const Home = () => {
 	return (
@@ -17,6 +18,7 @@ const Home = () => {
 				</Marquee>
 			</div>
 			<Banner></Banner>
+			<Cards></Cards>
 		</div>
 	);
 };
