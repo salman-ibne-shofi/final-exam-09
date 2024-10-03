@@ -17,11 +17,11 @@ const Cards = () => {
 
 	return (
 		<>
-			<div className="grid grid-cols-3 gap-4">
+			<div className="grid grid-cols-3 gap-2 mt-12">
 				{properties
 					.slice(0, showAll ? properties.length : 6)
 					.map((propertie) => (
-						<div key={propertie.id} className="card p-10 shadow-xl">
+						<div key={propertie.id} className="card p-10 border">
 							<figure>
 								<img
 									className="rounded-2xl"
@@ -33,7 +33,10 @@ const Cards = () => {
 									{propertie.estate_title}
 								</h2>
 								<p>{propertie.description}</p>
-								<Link className="btn btn-success text-white w-full">
+								<Link
+									to="/propdetails"
+									className="btn btn-success text-white w-full"
+								>
 									View Property
 								</Link>
 							</div>

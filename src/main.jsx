@@ -9,6 +9,7 @@ import Register from "./components/Register/Register";
 import AuthProvider from "./providers/AuthProvider";
 import Banner from "./components/Banner/Banner";
 import Cards from "./components/Cards/Cards";
+import PropDetails from "./components/PropDetails/PropDetails";
 
 const router = createBrowserRouter([
 	{
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
 			{
 				path: "/cards",
 				element: <Cards></Cards>,
+			},
+			{
+				path: "/propdetails",
+				element: <PropDetails></PropDetails>,
 			},
 		],
 	},
