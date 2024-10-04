@@ -37,7 +37,7 @@ const router = createBrowserRouter([
 				element: <Cards></Cards>,
 			},
 			{
-				path: "/propdetails",
+				path: "/propdetails/:id",
 				element: <PropDetails></PropDetails>,
 			},
 		],

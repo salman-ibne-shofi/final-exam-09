@@ -68,7 +68,7 @@ const Register = () => {
 
 	return (
 		<div
-			className="hero min-h-screen rounded-2xl"
+			className="hero min-h-screen rounded-2xl my-10"
 			style={{
 				backgroundImage:
 					"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
@@ -83,7 +83,7 @@ const Register = () => {
 					</p>
 					<form
 						onSubmit={handleRegister}
-						className="card-body border rounded-xl"
+						className="card-body border border-base-200 shadow-xl rounded-xl"
 					>
 						<div className="form-control">
 							<label className="label">
@@ -145,10 +145,6 @@ const Register = () => {
 							</button>
 						</div>
 					</form>
-					{/* {registerError && (
-						<p className="text-red-700">{registerError}</p>
-					)}
-					{success && <p className="text-green-600">{success}</p>} */}
 					<p className="text-xl">
 						Already have an account?
 						<Link

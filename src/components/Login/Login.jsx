@@ -45,7 +45,7 @@ const Login = () => {
 
 	return (
 		<div
-			className="hero min-h-screen rounded-2xl"
+			className="hero min-h-screen rounded-2xl my-10"
 			style={{
 				backgroundImage:
 					"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
@@ -60,7 +60,7 @@ const Login = () => {
 					</p>
 					<form
 						onSubmit={handleLogin}
-						className="card-body border rounded-xl"
+						className="card-body border border-base-100 shadow-xl rounded-xl"
 					>
 						<div className="form-control">
 							<label className="label">
