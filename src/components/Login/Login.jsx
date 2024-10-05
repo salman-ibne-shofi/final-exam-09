@@ -1,18 +1,20 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
 	const { logIn } = useContext(AuthContext);
+	const location = useLocation();
+	const navigate = useNavigate();
+
 	const handleLogin = (e) => {
 		e.preventDefault();
 		console.log(e.currentTarget);
 		const form = new FormData(e.currentTarget);
 		const email = form.get("email");
 		const password = form.get("password");
-		// console.log(email, password);
 		logIn(email, password)
 			.then((result) => {
 				toast.success("Login successful!", {
@@ -25,20 +27,20 @@ const Login = () => {
 					progress: undefined,
 				});
 				console.log(result.user);
+
+				// navigate after login
+				navigate(location?.state ? location.state : "/");
 			})
 			.catch((error) => {
-				toast.error(
-					"Login faield. Please try again after make sure Your Registration or User Credential Issue.",
-					{
-						position: "top-right",
-						autoClose: 3000,
-						hideProgressBar: false,
-						closeOnClick: true,
-						pauseOnHover: true,
-						draggable: true,
-						progress: undefined,
-					}
-				);
+				toast.error("Login failed. Please check your credentials.", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
 				console.error(error);
 			});
 	};

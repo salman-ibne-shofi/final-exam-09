@@ -10,6 +10,7 @@ import AuthProvider from "./providers/AuthProvider";
 import Banner from "./components/Banner/Banner";
 import Cards from "./components/Cards/Cards";
 import PropDetails from "./components/PropDetails/PropDetails";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
 	{
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/propdetails/:id",
-				element: <PropDetails></PropDetails>,
+				element: (
+					<PrivateRoute>
+						<PropDetails></PropDetails>
+					</PrivateRoute>
+				),
 			},
 		],
 	},
