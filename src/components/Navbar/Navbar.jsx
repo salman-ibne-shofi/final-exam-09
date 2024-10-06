@@ -42,6 +42,9 @@ const Navbar = () => {
 			<li>
 				<a>Update Profile</a>
 			</li>
+			<li>
+				<NavLink to="/booked">Already Booked</NavLink>
+			</li>
 		</>
 	);
 
@@ -76,7 +79,9 @@ const Navbar = () => {
 						{navlinks}
 					</ul>
 				</div>
-				<a className="text-2xl font-bold">Property & Real Estate</a>
+				<a className="text-3xl font-bold text-[#00935F]">
+					Property & Real Estate
+				</a>
 			</div>
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">{navlinks}</ul>
@@ -92,14 +97,16 @@ const Navbar = () => {
 						/>
 						<button
 							onClick={handleLogOut}
-							className="btn btn-outline"
+							className="px-6 py-2 rounded-lg bg-red-500 text-white"
 						>
 							Log Out
 						</button>
 					</div>
 				) : (
 					<Link to="/login">
-						<button className="btn btn-outline">Login</button>
+						<button className="px-6 py-2 rounded-lg bg-green-400 text-white">
+							Login
+						</button>
 					</Link>
 				)}
 			</div>

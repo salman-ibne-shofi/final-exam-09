@@ -58,7 +58,7 @@ const Register = () => {
 				photoURL: photo,
 			});
 
-			setSuccess("User created successfully!");
+			setSuccess("Successfully Registered!");
 			toast.success("User created successfully!");
 		} catch (error) {
 			setRegisterError(error.message);
@@ -76,7 +76,7 @@ const Register = () => {
 		>
 			<div className="hero-overlay bg-opacity-50"></div>
 			<div className="hero-content text-neutral-content text-center">
-				<div className="max-w-md">
+				<div className="max-w-md text-white">
 					<h1 className="mb-5 text-5xl font-bold">New User</h1>
 					<p className="mb-5 text-3xl font-semibold">
 						"Enagege With Us & Find Your Address - Register Now!"
@@ -148,7 +148,7 @@ const Register = () => {
 					<p className="text-xl">
 						Already have an account?
 						<Link
-							className="text-orange-600 ml-2 font-semibold"
+							className="text-orange-500 ml-2 font-semibold"
 							to="/login"
 						>
 							Please Login

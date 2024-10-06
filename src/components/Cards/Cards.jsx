@@ -36,11 +36,10 @@ const Cards = () => {
 									{property.estate_title}
 								</h2>
 								<p>{property.description}</p>
-								<Link
-									to={`/propdetails/${property.id}`}
-									className="btn btn-success text-white w-full"
-								>
-									View Property
+								<Link to={`/propdetails/${property.id}`}>
+									<button className="btn btn-success text-white w-full">
+										View Property
+									</button>
 								</Link>
 							</div>
 						</div>

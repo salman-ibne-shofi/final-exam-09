@@ -12,6 +12,8 @@ import Cards from "./components/Cards/Cards";
 import PropDetails from "./components/PropDetails/PropDetails";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import Booked from "./components/Booked/Booked";
+import { BookedProvider } from "./Context/BookedContext";
 
 const router = createBrowserRouter([
 	{
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
 					</PrivateRoute>
 				),
 			},
+			{
+				path: "/booked",
+				element: (
+					<PrivateRoute>
+						<Booked></Booked>
+					</PrivateRoute>
+				),
+			},
 		],
 	},
 ]);
@@ -54,7 +64,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<AuthProvider>
-			<RouterProvider router={router} />
+			<BookedProvider>
+				<RouterProvider router={router} />
+			</BookedProvider>
 		</AuthProvider>
 	</StrictMode>
 );

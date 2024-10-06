@@ -64,7 +64,6 @@ const Footer = () => {
 				<a className="link link-hover">Land.com</a>
 				<a className="link link-hover">Apartment.com</a>
 				<a className="link link-hover">Flat.com</a>
-				<a className="link link-hover">Plot.com</a>
 			</div>
 			<div>
 				<h6 className="footer-title border-orange-400 border-b">
@@ -75,9 +74,6 @@ const Footer = () => {
 				<a className="link link-hover">Screen Applicant</a>
 				<a className="link link-hover">Create Rental Leases</a>
 				<a className="link link-hover">Collect Rent Online</a>
-				<a className="link link-hover">Rent Comps</a>
-				<a className="link link-hover">Rental Manager Resources</a>
-				<a className="link link-hover">Rental Property Calculator</a>
 			</div>
 			<div>
 				<h6 className="footer-title border-orange-400 border-b">

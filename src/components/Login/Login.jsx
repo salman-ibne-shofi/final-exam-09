@@ -15,34 +15,38 @@ const Login = () => {
 		const form = new FormData(e.currentTarget);
 		const email = form.get("email");
 		const password = form.get("password");
-		logIn(email, password)
-			.then((result) => {
-				toast.success("Login successful!", {
-					position: "top-right",
-					autoClose: 3000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-				});
-				console.log(result.user);
+		toast.promise(
+			logIn(email, password)
+				.then((result) => {
+					console.log(result.user);
 
-				// navigate after login
-				navigate(location?.state ? location.state : "/");
-			})
-			.catch((error) => {
-				toast.error("Login failed. Please check your credentials.", {
-					position: "top-right",
-					autoClose: 3000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-				});
-				console.error(error);
-			});
+					// Navigate after successful login
+					navigate(location?.state ? location.state : "/");
+				})
+				.catch((error) => {
+					throw new Error(
+						"Login failed. Please check your credentials."
+					);
+				}),
+			{
+				pending: "Logging in...",
+				success: "Login successful!",
+				error: {
+					render({ data }) {
+						return data.message || "Login failed!";
+					},
+				},
+			},
+			{
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			}
+		);
 	};
 
 	return (
@@ -55,7 +59,7 @@ const Login = () => {
 		>
 			<div className="hero-overlay bg-opacity-50"></div>
 			<div className="hero-content text-neutral-content text-center">
-				<div className="max-w-md">
+				<div className="max-w-md text-white">
 					<h1 className="mb-5 text-5xl font-bold">Honorable User</h1>
 					<p className="mb-5 text-3xl font-semibold">
 						"To Access Exclusive Property Listings – Please Login!"
@@ -105,7 +109,7 @@ const Login = () => {
 					<p className="text-xl">
 						Don't have any account!
 						<Link
-							className="text-orange-600 ml-2 font-semibold"
+							className="text-orange-500 ml-2 font-semibold"
 							to="/register"
 						>
 							Please Register
