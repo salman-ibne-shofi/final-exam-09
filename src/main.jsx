@@ -11,11 +11,13 @@ import Banner from "./components/Banner/Banner";
 import Cards from "./components/Cards/Cards";
 import PropDetails from "./components/PropDetails/PropDetails";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Root></Root>,
+		errorElement: <ErrorPage></ErrorPage>,
 		children: [
 			{
 				path: "/",
