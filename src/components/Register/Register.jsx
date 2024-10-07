@@ -4,6 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 	const { createUser } = useContext(AuthContext);
@@ -67,98 +68,111 @@ const Register = () => {
 	};
 
 	return (
-		<div
-			className="hero min-h-screen rounded-2xl my-10"
-			style={{
-				backgroundImage:
-					"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
-			}}
-		>
-			<div className="hero-overlay bg-opacity-50"></div>
-			<div className="hero-content text-neutral-content text-center">
-				<div className="max-w-md text-white">
-					<h1 className="mb-5 text-5xl font-bold">New User</h1>
-					<p className="mb-5 text-3xl font-semibold">
-						"Enagege With Us & Find Your Address - Register Now!"
-					</p>
-					<form
-						onSubmit={handleRegister}
-						className="card-body border border-base-200 shadow-xl rounded-xl"
-					>
-						<div className="form-control">
-							<label className="label">
-								<span className="text-xl">Your Name</span>
-							</label>
-							<input
-								type="text"
-								name="name"
-								placeholder="Name"
-								className="input input-bordered"
-								required
-							/>
-						</div>
-						<div className="form-control">
-							<label className="label">
-								<span className="text-xl">Email Address</span>
-							</label>
-							<input
-								type="email"
-								name="email"
-								placeholder="Email"
-								className="input input-bordered"
-								required
-							/>
-						</div>
-						<div className="form-control">
-							<label className="label">
-								<span className="text-xl">Photo URL</span>
-							</label>
-							<input
-								type="text"
-								name="photo"
-								placeholder="Photo URL"
-								className="input input-bordered"
-								required
-							/>
-						</div>
-						<div className="form-control">
-							<label className="label">
-								<span className="text-xl">Password</span>
-							</label>
-							<input
-								type="password"
-								name="password"
-								placeholder="Password"
-								className="input input-bordered"
-								required
-							/>
-							<label className="label">
-								<a
-									href="#"
-									className="label-text-alt link link-hover"
-								></a>
-							</label>
-						</div>
-						<div className="form-control mt-6">
-							<button className="btn btn-success text-white">
-								Register
-							</button>
-						</div>
-					</form>
-					<p className="text-xl">
-						Already have an account?
-						<Link
-							className="text-orange-500 ml-2 font-semibold"
-							to="/login"
-						>
-							Please Login
-						</Link>
-					</p>
-				</div>
-			</div>
+		<>
+			{/* Helmet for setting the page title and meta description */}
+			<Helmet>
+				<title>Register - Real Estate</title>
+				<meta
+					name="description"
+					content="Create an account to access exclusive property listings and enjoy personalized services."
+				/>
+			</Helmet>
 			{/* Toast container for notifications */}
 			<ToastContainer position="top-right" autoClose={3000} />
-		</div>
+			<div
+				className="hero min-h-screen rounded-2xl my-10"
+				style={{
+					backgroundImage:
+						"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
+				}}
+			>
+				<div className="hero-overlay bg-opacity-50"></div>
+				<div className="hero-content text-neutral-content text-center">
+					<div className="max-w-md text-white">
+						<h1 className="mb-5 text-5xl font-bold">New User</h1>
+						<p className="mb-5 text-3xl font-semibold">
+							"Enagege With Us & Find Your Address - Register
+							Now!"
+						</p>
+						<form
+							onSubmit={handleRegister}
+							className="card-body border border-base-200 shadow-xl rounded-xl"
+						>
+							<div className="form-control">
+								<label className="label">
+									<span className="text-xl">Your Name</span>
+								</label>
+								<input
+									type="text"
+									name="name"
+									placeholder="Name"
+									className="input input-bordered"
+									required
+								/>
+							</div>
+							<div className="form-control">
+								<label className="label">
+									<span className="text-xl">
+										Email Address
+									</span>
+								</label>
+								<input
+									type="email"
+									name="email"
+									placeholder="Email"
+									className="input input-bordered"
+									required
+								/>
+							</div>
+							<div className="form-control">
+								<label className="label">
+									<span className="text-xl">Photo URL</span>
+								</label>
+								<input
+									type="text"
+									name="photo"
+									placeholder="Photo URL"
+									className="input input-bordered"
+									required
+								/>
+							</div>
+							<div className="form-control">
+								<label className="label">
+									<span className="text-xl">Password</span>
+								</label>
+								<input
+									type="password"
+									name="password"
+									placeholder="Password"
+									className="input input-bordered"
+									required
+								/>
+								<label className="label">
+									<a
+										href="#"
+										className="label-text-alt link link-hover"
+									></a>
+								</label>
+							</div>
+							<div className="form-control mt-6">
+								<button className="p-2 rounded-lg bg-[#00935F] text-white">
+									Register
+								</button>
+							</div>
+						</form>
+						<p className="text-xl">
+							Already have an account?
+							<Link
+								className="text-orange-500 ml-2 font-semibold"
+								to="/login"
+							>
+								Please Login
+							</Link>
+						</p>
+					</div>
+				</div>
+			</div>
+		</>
 	);
 };
 

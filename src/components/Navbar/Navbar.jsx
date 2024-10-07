@@ -91,7 +91,7 @@ const Navbar = () => {
 					<div className="flex items-center space-x-4">
 						<img
 							src={user.photoURL}
-							alt="Profile"
+							alt="User Profile"
 							className="w-10 h-10 rounded-full"
 							title={user.displayName || "user"}
 						/>
@@ -104,7 +104,7 @@ const Navbar = () => {
 					</div>
 				) : (
 					<Link to="/login">
-						<button className="px-6 py-2 rounded-lg bg-green-400 text-white">
+						<button className="px-6 py-2 rounded-lg bg-[#00A96E] text-white">
 							Login
 						</button>
 					</Link>

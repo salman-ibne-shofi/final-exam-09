@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BookedContext } from "../../Context/BookedContext";
 import { ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Booked = () => {
 	const navigate = useNavigate();
@@ -21,6 +22,9 @@ const Booked = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>Booked Properties - Real Estate</title>
+			</Helmet>
 			<ToastContainer />
 			<div className="my-10">
 				<h1 className="text-2xl font-bold mb-6">Booked Properties</h1>

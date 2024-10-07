@@ -14,6 +14,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Booked from "./components/Booked/Booked";
 import { BookedProvider } from "./Context/BookedContext";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
 	{
@@ -65,7 +66,9 @@ createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<AuthProvider>
 			<BookedProvider>
-				<RouterProvider router={router} />
+				<HelmetProvider>
+					<RouterProvider router={router} />
+				</HelmetProvider>
 			</BookedProvider>
 		</AuthProvider>
 	</StrictMode>
