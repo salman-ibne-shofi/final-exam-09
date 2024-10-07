@@ -80,7 +80,7 @@ const Register = () => {
 			{/* Toast container for notifications */}
 			<ToastContainer position="top-right" autoClose={3000} />
 			<div
-				className="hero min-h-screen rounded-2xl my-10"
+				className="hero min-h-screen my-10 px-4 md:px-8 lg:px-12"
 				style={{
 					backgroundImage:
 						"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
@@ -88,19 +88,23 @@ const Register = () => {
 			>
 				<div className="hero-overlay bg-opacity-50"></div>
 				<div className="hero-content text-neutral-content text-center">
-					<div className="max-w-md text-white">
-						<h1 className="mb-5 text-5xl font-bold">New User</h1>
-						<p className="mb-5 text-3xl font-semibold">
+					<div className="w-full max-w-md lg:max-w-lg text-white">
+						<h1 className="mb-5 text-3xl md:text-4xl lg:text-5xl font-bold">
+							New User
+						</h1>
+						<p className="mb-5 text-xl md:text-2xl lg:text-3xl font-semibold">
 							"Enagege With Us & Find Your Address - Register
 							Now!"
 						</p>
 						<form
 							onSubmit={handleRegister}
-							className="card-body border border-base-200 shadow-xl rounded-xl"
+							className="card-body border border-base-200 shadow-xl rounded-xl bg-opacity-60"
 						>
 							<div className="form-control">
 								<label className="label">
-									<span className="text-xl">Your Name</span>
+									<span className="text-lg md:text-xl">
+										Your Name
+									</span>
 								</label>
 								<input
 									type="text"
@@ -112,7 +116,7 @@ const Register = () => {
 							</div>
 							<div className="form-control">
 								<label className="label">
-									<span className="text-xl">
+									<span className="text-lg md:text-xl">
 										Email Address
 									</span>
 								</label>
@@ -126,7 +130,9 @@ const Register = () => {
 							</div>
 							<div className="form-control">
 								<label className="label">
-									<span className="text-xl">Photo URL</span>
+									<span className="text-lg md:text-xl">
+										Photo URL
+									</span>
 								</label>
 								<input
 									type="text"
@@ -138,7 +144,9 @@ const Register = () => {
 							</div>
 							<div className="form-control">
 								<label className="label">
-									<span className="text-xl">Password</span>
+									<span className="text-lg md:text-xl">
+										Password
+									</span>
 								</label>
 								<input
 									type="password"
@@ -155,18 +163,19 @@ const Register = () => {
 								</label>
 							</div>
 							<div className="form-control mt-6">
-								<button className="p-2 rounded-lg bg-[#00935F] text-white">
+								<button className="p-2 md:p-2 lg:p-2 rounded-lg bg-[#00935F] text-white text-lg md:text-xl lg:text-2xl">
 									Register
 								</button>
 							</div>
 						</form>
-						<p className="text-xl">
+						<p className="text-lg md:text-xl lg:text-2xl mt-4">
 							Already have an account?
 							<Link
-								className="text-orange-500 ml-2 font-semibold"
+								className="underline ml-2 font-bold"
 								to="/login"
+								style={{ textDecorationColor: "#fb923c" }}
 							>
-								Please Login
+								Login
 							</Link>
 						</p>
 					</div>

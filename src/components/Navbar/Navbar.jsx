@@ -49,9 +49,10 @@ const Navbar = () => {
 	);
 
 	return (
-		<div className="navbar bg-base-100">
+		<div className="navbar bg-base-100 p-4">
 			<div className="navbar-start">
 				<div className="dropdown">
+					{/* Dropdown for mobile view */}
 					<div
 						tabIndex={0}
 						role="button"
@@ -79,14 +80,19 @@ const Navbar = () => {
 						{navlinks}
 					</ul>
 				</div>
+				{/* Brand Title */}
 				<a className="text-3xl font-bold text-[#00935F]">
 					Property & Real Estate
 				</a>
 			</div>
+
+			{/* Navigation Links for Desktop */}
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">{navlinks}</ul>
 			</div>
+
 			<div className="navbar-end">
+				{/* User Profile / Login Button */}
 				{user ? (
 					<div className="flex items-center space-x-4">
 						<img
@@ -97,14 +103,14 @@ const Navbar = () => {
 						/>
 						<button
 							onClick={handleLogOut}
-							className="px-6 py-2 rounded-lg bg-red-500 text-white"
+							className="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600"
 						>
 							Log Out
 						</button>
 					</div>
 				) : (
 					<Link to="/login">
-						<button className="px-6 py-2 rounded-lg bg-[#00A96E] text-white">
+						<button className="px-6 py-2 rounded-lg bg-[#00A96E] text-white hover:bg-[#00935F]">
 							Login
 						</button>
 					</Link>

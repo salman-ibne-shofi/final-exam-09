@@ -5,7 +5,9 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import auth from "../../firebase/firebase.config";
+import { CgGoogle } from "react-icons/cg";
+
+import { FaGithub } from "react-icons/fa6";
 
 const Login = () => {
 	const { logIn, signInWithGithub } = useContext(AuthContext);
@@ -85,7 +87,7 @@ const Login = () => {
 			</Helmet>
 			<ToastContainer />
 			<div
-				className="hero min-h-screen rounded-2xl my-10"
+				className="hero min-h-screen my-10 px-4 md:px-8 lg:px-12"
 				style={{
 					backgroundImage:
 						"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
@@ -93,11 +95,11 @@ const Login = () => {
 			>
 				<div className="hero-overlay bg-opacity-50"></div>
 				<div className="hero-content text-neutral-content text-center">
-					<div className="max-w-md text-white">
-						<h1 className="mb-5 text-5xl font-bold">
+					<div className="max-w-md w-full text-white">
+						<h1 className="mb-5 text-4xl md:text-5xl font-bold">
 							Honorable User
 						</h1>
-						<p className="mb-5 text-3xl font-semibold">
+						<p className="mb-5 text-2xl md:text-3xl font-semibold">
 							"To Access Exclusive Property Listings – Please
 							Login!"
 						</p>
@@ -146,27 +148,31 @@ const Login = () => {
 								/>
 							</div>
 							{/* Google LogIn */}
+
 							<button
-								className="p-2 rounded-lg bg-red-500 text-white mt-4"
+								className="relative p-2 rounded-lg bg-[#EA473A] text-white mt-4 w-full"
 								onClick={handleGoogleLogin}
 							>
+								<CgGoogle className="h-6 w-6 absolute left-4 top-2 ml-24" />
 								Google LogIn
 							</button>
 							{/* GitHub Login */}
 							<button
-								className="p-2 rounded-lg bg-black text-white mt-4"
+								className="relative p-2 rounded-lg bg-black text-white mt-4 w-full"
 								onClick={handleGithubLogin}
 							>
+								<FaGithub className="h-6 w-6 absolute left-4 top-2 ml-24" />
 								GitHub Login
 							</button>
 						</form>
-						<p className="text-xl">
-							Don't have an account!
+						<p className="text-xl mt-4">
+							Don't have an account?
 							<Link
-								className="text-orange-500 ml-2 font-semibold"
+								className="underline ml-2 font-bold"
 								to="/register"
+								style={{ textDecorationColor: "#fb923c" }}
 							>
-								Please Register
+								Register
 							</Link>
 						</p>
 					</div>
