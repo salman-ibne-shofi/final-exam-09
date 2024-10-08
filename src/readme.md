@@ -7,3 +7,13 @@ Car World
 3. npm i -D daisyui@latest
 4. npm i react-helmet-async
 5. 
+
+
+<!-- Features -->
+1. login form
+2. registration form
+3. website navigation
+4. view properties
+5. view property details
+6. book properties
+7. view already booked properties

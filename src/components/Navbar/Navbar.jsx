@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NavbarEnd from "./NavbarEnd";
 
 const Navbar = () => {
 	const { user, logOut } = useContext(AuthContext);
@@ -92,29 +93,11 @@ const Navbar = () => {
 			</div>
 
 			<div className="navbar-end">
-				{/* User Profile / Login Button */}
-				{user ? (
-					<div className="flex items-center space-x-4">
-						<img
-							src={user.photoURL}
-							alt="User Profile"
-							className="w-10 h-10 rounded-full"
-							title={user.displayName || "user"}
-						/>
-						<button
-							onClick={handleLogOut}
-							className="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600"
-						>
-							Log Out
-						</button>
-					</div>
-				) : (
-					<Link to="/login">
-						<button className="px-6 py-2 rounded-lg bg-[#00A96E] text-white hover:bg-[#00935F]">
-							Login
-						</button>
-					</Link>
-				)}
+				<NavbarEnd
+					user={user}
+					logOut={logOut}
+					handleLogOut={handleLogOut}
+				/>
 			</div>
 		</div>
 	);

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
@@ -6,13 +6,15 @@ import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { CgGoogle } from "react-icons/cg";
-
 import { FaGithub } from "react-icons/fa6";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
-	const { logIn, signInWithGithub } = useContext(AuthContext);
+	const { logIn, signInWithGithub, signInWithGoogle } =
+		useContext(AuthContext);
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [showPassword, setShowPassword] = useState(false);
 
 	const googleProvider = new GoogleAuthProvider();
 
@@ -49,7 +51,7 @@ const Login = () => {
 	};
 
 	const handleGoogleLogin = () => {
-		signInWithPopup(auth, googleProvider)
+		signInWithGoogle()
 			.then((result) => {
 				console.log(result.user);
 				toast.success("Google login successful!");
@@ -87,7 +89,7 @@ const Login = () => {
 			</Helmet>
 			<ToastContainer />
 			<div
-				className="hero min-h-screen my-10 px-4 md:px-8 lg:px-12"
+				className="hero min-h-screen my-10 rounded-xl"
 				style={{
 					backgroundImage:
 						"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
@@ -125,13 +127,29 @@ const Login = () => {
 								<label className="label">
 									<span className="text-xl">Password</span>
 								</label>
-								<input
-									type="password"
-									name="password"
-									placeholder="Password"
-									className="input input-bordered"
-									required
-								/>
+								<div className="input-pass relative">
+									<input
+										type={
+											showPassword ? "text" : "password"
+										}
+										name="password"
+										placeholder="Password"
+										className="input input-bordered w-full"
+										required
+									/>
+									<span
+										className="absolute top-1/3 right-4"
+										onClick={() =>
+											setShowPassword(!showPassword)
+										}
+									>
+										{showPassword ? (
+											<FaEyeSlash />
+										) : (
+											<FaEye />
+										)}
+									</span>
+								</div>
 								<label className="label">
 									<a
 										href="#"

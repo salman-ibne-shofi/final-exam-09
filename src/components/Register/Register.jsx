@@ -80,7 +80,7 @@ const Register = () => {
 			{/* Toast container for notifications */}
 			<ToastContainer position="top-right" autoClose={3000} />
 			<div
-				className="hero min-h-screen my-10 px-4 md:px-8 lg:px-12"
+				className="hero min-h-screen my-10 rounded-xl"
 				style={{
 					backgroundImage:
 						"url(https://i.postimg.cc/KYxBHVWC/c3bbc62b-25c7-4cb0-b723-99b34282b875-1.jpg)",
