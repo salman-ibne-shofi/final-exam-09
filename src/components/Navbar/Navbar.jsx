@@ -41,9 +41,6 @@ const Navbar = () => {
 				<NavLink to="/">Home</NavLink>
 			</li>
 			<li>
-				<a>Update Profile</a>
-			</li>
-			<li>
 				<NavLink to="/booked">Already Booked</NavLink>
 			</li>
 		</>
